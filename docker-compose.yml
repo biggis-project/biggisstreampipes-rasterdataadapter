@@ -1,0 +1,10 @@
+version: '2'
+services:
+  template-sources:
+    build: .
+    ports:
+      - "8085:8085"
+    volumes:
+      # Add route to the client config
+      - /Users/philippzehnder/.streampipes:/root/.streampipes
+
