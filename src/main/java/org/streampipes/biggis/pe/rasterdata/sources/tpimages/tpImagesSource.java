@@ -13,12 +13,13 @@ public class tpImagesSource implements SemanticEventProducerDeclarer {
     public SepDescription declareModel() {
         return DataSourceBuilder.create("raster-data-source", "Raster data Demo Source", "This source generates raster data streams")
                 .build();
-
     }
 
     @Override
     public List<EventStreamDeclarer> getEventStreams() {
-        return Arrays.asList(new tpImagesStream());
+        return Arrays.asList(new tpEndlessGeotiffStream(),
+                new tpRestartableInlineStream(),
+                new tpRestartableOobStream());
     }
 
 }

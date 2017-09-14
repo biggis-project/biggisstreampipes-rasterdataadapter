@@ -9,18 +9,21 @@ import org.streampipes.sdk.helpers.Formats;
 import org.streampipes.sdk.helpers.Protocols;
 import org.streampipes.sources.AbstractAlreadyExistingStream;
 
-public class tpImagesStream extends AbstractAlreadyExistingStream {
+/**
+ * Created by Jochen Lutz on 2017-09-14.
+ */
+public class tpRestartableInlineStream extends AbstractAlreadyExistingStream {
 
     @Override
     public EventStream declareModel(SepDescription sepDescription) {
-        return DataStreamBuilder.create("tpimages-stream", "Technologiepark Raster data stream", "This stream generates aerial pictures of TPK")
+        return DataStreamBuilder.create("tpimages-stream-restartable-inline", "Technologiepark Raster data stream", "This generates an inline stream of aerial pictures of TPK")
                 .property(EpProperties.doubleEp("latitude", Geo.lat))
                 .property(EpProperties.doubleEp("longitude", Geo.lng))
                 .property(EpProperties.doubleEp("altitude", Geo.alt))
                 .property(EpProperties.stringEp("raster-data", "http://types.streampipes.org/RasterData"))
-                .format(Formats.thriftFormat())
+                .format(Formats.jsonFormat())
                 .protocol(Protocols.kafka(tpImagesConfig.INSTANCE.getKafkaHost(), tpImagesConfig.INSTANCE.getKafkaPort(),
-                        "org.streampipes.biggis.rasterdata.demo-source-endless-geotiff"))
+                        "org.streampipes.biggis.rasterdata.demo-source.inline"))
                 .build();
     }
 }
