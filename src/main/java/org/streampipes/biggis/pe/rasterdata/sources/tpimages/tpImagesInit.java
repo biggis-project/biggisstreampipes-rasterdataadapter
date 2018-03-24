@@ -11,6 +11,6 @@ public class tpImagesInit extends StandaloneModelSubmitter {
 
         DeclarersSingleton.getInstance().setHostName(tpImagesConfig.INSTANCE.getHost());
         DeclarersSingleton.getInstance().setPort(tpImagesConfig.INSTANCE.getPort());
-        new tpImagesInit().init();
+        new tpImagesInit().init(tpImagesConfig.INSTANCE);
     }
 }

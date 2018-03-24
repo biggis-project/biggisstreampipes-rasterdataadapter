@@ -1,34 +1,47 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.streampipes.biggis</groupId>
+    <parent>
+        <groupId>org.streampipes</groupId>
+        <artifactId>streampipes-parent</artifactId>
+        <version>0.41.2</version>
+    </parent>
+
     <artifactId>rasterdata-adapter</artifactId>
-    <version>0.1</version>
 
     <properties>
-        <sp.version>0.41.0-SNAPSHOT</sp.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.streampipes</groupId>
             <artifactId>streampipes-container-standalone</artifactId>
-            <version>${sp.version}</version>
+        </dependency>
+<!--        <dependency>
+            <groupId>org.streampipes</groupId>
+            <artifactId>streampipes-sources</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>org.streampipes</groupId>
+            <artifactId>streampipes-commons</artifactId>
         </dependency>
         <dependency>
             <groupId>org.streampipes</groupId>
-            <artifactId>streampipes-sources</artifactId>
-            <version>${sp.version}</version>
+            <artifactId>streampipes-model</artifactId>
         </dependency>
         <dependency>
             <groupId>org.streampipes</groupId>
             <artifactId>streampipes-config</artifactId>
-            <version>${sp.version}</version>
         </dependency>
         <dependency>
             <groupId>org.streampipes</groupId>
             <artifactId>streampipes-sdk</artifactId>
-            <version>${sp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.streampipes</groupId>
+            <artifactId>streampipes-sources</artifactId>
         </dependency>
     </dependencies>
 
@@ -100,7 +113,7 @@
         <repository>
             <id>laus</id>
             <name>nexus repository</name>
-            <url>http://laus.fzi.de/nexus/content/repositories/snapshots/</url>
+            <url>http://laus.fzi.de/nexus/content/repositories/releases/</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>daily</updatePolicy>
